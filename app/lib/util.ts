@@ -16,5 +16,5 @@ export const capitalize = (str: string) => {
   str = str?.replace(/%20/g, " ");
 
   // nullish here to avoid error with empty string
-  return str[0].toUpperCase + str.slice(1) + " Questions" ?? str;
+  return str[0].toUpperCase() + str.slice(1) + " Questions" ?? str;
 }
