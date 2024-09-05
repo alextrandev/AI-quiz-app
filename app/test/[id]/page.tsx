@@ -14,7 +14,25 @@ export default function TestPage() {
   // track current question number
   const [currQuestion, setCurrQuestion] = useState<number>(0);
 
-  const handleAnswerClick = (answer: string) => { }
+  const handleAnswerClick = (answer: string) => {
+    // update score state
+    setScore(score => answer === questions[currQuestion].answer ? score + 1 : score);
+
+    // questions count
+    if (currQuestion < questions.length - 1) {
+      setCurrQuestion(count => count + 1);
+    } else {
+      // if this is the last question, wait for score to update before redicrect to score page
+      setTimeout(() => {
+        router.push(
+          "/score?score=" +
+          (answer === questions[currQuestion].answer
+            ? score + 1
+            : score)
+        );
+      }, 100);
+    }
+  }
 
   return (
     <main className="w-full min-h-screen p-6 flex flex-col items-center justify-center">
