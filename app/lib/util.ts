@@ -1,11 +1,11 @@
 // topics list
-export const firstTopics = [
+export const category_1 = [
   { id: "AI", name: "AI quiz" },
   { id: "PHP", name: "PHP quiz" },
   { id: "JS", name: "JavaScript quiz" },
 ];
 
-export const secondTopics = [
+export const category_2 = [
   { id: "CSS", name: "CSS quiz" },
   { id: "HTML", name: "HTML quiz" },
   { id: "UI", name: "UI Design quiz" },
