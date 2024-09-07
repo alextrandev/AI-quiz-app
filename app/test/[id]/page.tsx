@@ -24,12 +24,11 @@ export default function TestPage() {
     } else {
       // if this is the last question, wait for score to update before redicrect to score page
       setTimeout(() => {
-        router.push(
-          "/score?score=" +
-          (answer === questions[currQuestion].answer
-            ? score + 1
-            : score)
-        );
+        router
+          .push("/score?score="
+            + (answer === questions[currQuestion].answer ? score + 1 : score)
+          );
+        router.push(`&topic=${capitalize(id)}`);
       }, 100);
     }
   }
