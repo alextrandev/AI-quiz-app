@@ -13,6 +13,7 @@ export default function TestPage() {
   const [score, setScore] = useState<number>(0);
   // track current question number
   const [currQuestion, setCurrQuestion] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleAnswerClick = (answer: string) => {
     // update score state
@@ -31,6 +32,10 @@ export default function TestPage() {
         router.push(`&topic=${capitalize(id)}`);
       }, 100);
     }
+  }
+
+  if (loading) {
+    return <h3 className='font-semibold text-2xl mb-3'>Loading...</h3>;
   }
 
   return (
