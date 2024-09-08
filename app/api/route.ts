@@ -34,5 +34,17 @@ export async function POST(req: NextRequest) {
   const aiQuestions = completion.choices[0].message.content;
   const questions = JSON.parse(aiQuestions!);
 
-  return NextResponse.json({ message: "Fetch complete" }, { status: 200 });
+  // error return for failed response from AI
+  if (questions.questions.length < 10) {
+    return NextResponse.json(
+      { message: "Error generating questions", questions },
+      { status: 400 }
+    );
+  }
+
+  // returns the list of questions
+  return NextResponse.json(
+    { message: "Fetch complete", questions: questions.questions },
+    { status: 200 }
+  );
 }
