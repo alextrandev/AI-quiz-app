@@ -19,5 +19,20 @@ export async function POST(req: NextRequest) {
     You can use this as a sample: ${JSON.stringify(sampleQuestion)}
   `;
 
+  // generate the questions for AI
+  const completion = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
+  });
+
+  // processing the response result
+  const aiQuestions = completion.choices[0].message.content;
+  const questions = JSON.parse(aiQuestions!);
+
   return NextResponse.json({ message: "Fetch complete" }, { status: 200 });
 }
