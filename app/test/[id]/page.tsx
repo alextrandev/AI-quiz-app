@@ -3,7 +3,7 @@
 import { capitalize } from "@/app/lib/util";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function TestPage() {
   // get current quiz topic from url
@@ -14,6 +14,25 @@ export default function TestPage() {
   // track current question number
   const [currQuestion, setCurrQuestion] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+
+  // useCallBack will trigger if the given input (id) changes
+  const fetchQuestions = useCallback(async () => {
+    const req = await fetch(`/api`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ topic: id }),
+    });
+    const data = await req.json();
+    setQuestions(data.questions);
+    setLoading(false);
+  }, [id]);
+
+  // to prevent loop when useCallBack triggered
+  useEffect(() => {
+    fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleAnswerClick = (answer: string) => {
     // update score state
