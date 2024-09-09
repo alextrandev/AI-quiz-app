@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { category_1, category_2 } from "./lib/util";
+import { quizCaterories } from "./lib/util";
 
 export default function Home() {
   const router = useRouter();
@@ -9,8 +9,6 @@ export default function Home() {
   const handleClick = (id: string) => {
     router.push(`/test/${id}`)
   };
-
-  const quizCaterories = [category_1, category_2];
 
   return (
     <main className="w-full min-h-screen flex flex-col items-center justify-center">
@@ -20,7 +18,7 @@ export default function Home() {
       </p>
       <div className="px-4 flex flex-col gap-4">
         {quizCaterories.map((category, i) => (
-          <section className="w-full flex items-center space-x-5" key={i}>
+          <section className="w-full flex justify-center items-center space-x-5" key={i}>
             {category.map(topic => (
               <button
                 key={topic.id}

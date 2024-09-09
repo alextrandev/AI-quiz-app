@@ -46,9 +46,10 @@ export default function TestPage() {
       setTimeout(() => {
         router
           .push("/score?score="
+            // add the score as url parameter
             + (answer === questions[currQuestion].answer ? score + 1 : score)
-          );
-        router.push(`&topic=${capitalize(id)}`);
+            // add the topic as parameter, skip the "question" part of the string
+            + `&topic=${capitalize(id).split(' ')[0]}`);
       }, 100);
     }
   }
