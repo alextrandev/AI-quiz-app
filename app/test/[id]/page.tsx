@@ -82,14 +82,20 @@ export default function TestPage() {
         <div className="flex flex-col lg:w-1/3 mb-6">
           {questions[currQuestion]?.options.map((option, i) => (
             <button
-              className="p-4 bg-gray-300 rounded-xl mb-6 min-w[200px] text-black text-lg
-           hover:bg-red-400 hover:text-white"
+              className={
+                `p-4 rounded-xl mb-6 min-w[200px] text-lg
+                  ${option === questions[currQuestion].answer
+                  ? "bg-green-500 text-white"
+                  : "bg-gray-300 text-gray-600"}
+                `
+              }
+              disabled
               key={i}
-              onClick={() => handleAnswerClick(option)}
             >
               {option}
             </button>
-          ))}
+          )
+          )}
           <button
             className="p-4 bg-blue-500 rounded-xl mb-6 min-w[200px] text-white text-lg
            hover:bg-yellow-500 hover:text-black"
@@ -98,7 +104,7 @@ export default function TestPage() {
             Next question
           </button>
         </div>
-      </main>
+      </main >
     );
   }
 
