@@ -65,14 +65,18 @@ export default function TestPage() {
 
   // loading screen
   if (loading) {
-    return <h3 className='font-semibold text-2xl mb-3'>Loading...</h3>;
+    return (
+      <main className="w-full min-h-screen p-6 flex flex-col items-center justify-center">
+        <h3 className='font-semibold text-2xl mb-3'>Loading...</h3>
+      </main>
+    );
   }
 
   // show the right answer and next question button
   if (answerChosen) {
     return (
       <main className="w-full min-h-screen p-6 flex flex-col items-center justify-center">
-        <h2 className="font-bold text-3xl mb-4 text-blue-500">
+        <h2 className="font-bold text-3xl mb-4 text-blue-500 text-center">
           {capitalize(id)}
         </h2>
         <h3 className="font-semibold text-2xl mb-3">
@@ -119,7 +123,7 @@ export default function TestPage() {
   // show the question and 4 answer options
   return (
     <main className="w-full min-h-screen p-6 flex flex-col items-center justify-center">
-      <h2 className="font-bold text-3xl mb-4 text-blue-500">
+      <h2 className="font-bold text-3xl mb-4 text-blue-500 text-center">
         {capitalize(id)}
       </h2>
       <h3 className="font-semibold text-2xl mb-3">

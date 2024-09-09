@@ -15,7 +15,8 @@ const programming_2 = [
 const music_1 = [
   { id: "US UK", name: "US UK music quiz" },
   { id: "KPOP", name: "Kpop music quiz" },
-  { id: "Classical", name: "Vpop music quiz" },
+  { id: "Vietnamese POP Music", name: "Vpop music quiz" },
+  { id: "Classical", name: "Classical music quiz" },
 ]
 
 const science_1 = [
