@@ -109,7 +109,7 @@ export default function TestPage() {
            hover:bg-yellow-500 hover:text-black"
             onClick={() => handleNextQuestion()}
           >
-            Next question
+            {currQuestion < questions.length - 1 ? "Next question" : "Show score"}
           </button>
         </div>
       </main >
