@@ -16,6 +16,8 @@ export default function TestPage() {
   const [loading, setLoading] = useState<boolean>(true);
   // this state define if user already chosen an answer for current question
   const [answerChosen, setAnswerChosen] = useState<boolean>(false);
+  // to store the answer
+  const [answer, setAnswer] = useState<string>("");
 
   // useCallBack will trigger if the given input (id) changes
   const fetchQuestions = useCallback(async () => {
@@ -40,6 +42,7 @@ export default function TestPage() {
     // update score state
     setScore(score => answer === questions[currQuestion].answer ? score + 1 : score);
     setAnswerChosen(true);
+    setAnswer(answer);
   }
 
   const handleNextQuestion = () => {
@@ -83,10 +86,15 @@ export default function TestPage() {
           {questions[currQuestion]?.options.map((option, i) => (
             <button
               className={
+                // show a different bg and color for the right answer
                 `p-4 rounded-xl mb-6 min-w[200px] text-lg
                   ${option === questions[currQuestion].answer
-                  ? "bg-green-500 text-white"
-                  : "bg-gray-300 text-gray-600"}
+                  ? "bg-green-500 text-white border-green-700"
+                  : "bg-gray-300 text-gray-600 border-red-500"}
+                  ${option === answer
+                  ? "border-4"
+                  : "border-0"
+                }
                 `
               }
               disabled
@@ -132,6 +140,13 @@ export default function TestPage() {
             {option}
           </button>
         ))}
+        <button
+          className="p-4 bg-blue-500 rounded-xl mb-6 min-w[200px] text-white text-lg
+           hover:bg-yellow-500 hover:text-black"
+          onClick={() => handleNextQuestion()}
+        >
+          Skip question
+        </button>
       </div>
     </main>
   )
