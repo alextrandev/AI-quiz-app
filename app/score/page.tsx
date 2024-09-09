@@ -2,8 +2,18 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
 
 export default function Score() {
+  return (
+    <Suspense fallback={<h3 className='font-semibold text-2xl mb-3'>Loading...</h3>}>
+      <ScoreContent />
+    </Suspense>
+  )
+}
+
+function ScoreContent() {
   const urlParams = useSearchParams();
   const score = urlParams.get("score");
   const topic = urlParams.get("topic");
