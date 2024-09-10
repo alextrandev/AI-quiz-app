@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Quiz App
 
-## Getting Started
+This is an AI powered quiz app featuring NextJS Framework, Tailwind CSS and OpenAI
+**[Go to live website](https://ai-quiz.alextran.dev)**
 
-First, run the development server:
+## Functions:
+- Give a list of common quiz topics
+- Input field so user can choose their own topic
+- Give 10 random questions of the chosen topic with 4 options
+- Provide answer after user chose an option
+- Keep the score and display it after the test
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Languages:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Libraries and frameworks:
 
-## Learn More
+- NextJS Typescript
+- TailwindCSS
+- OpenAI
 
-To learn more about Next.js, take a look at the following resources:
+## Setup and usage
 
+**Live page [here](https://ai-quiz.alextran.dev)**
+
+**To host project locally**
+- Clone the project: 
+```git clone https://github.com/alextrandev/AI-quiz-app.git```
+- Change working directory ```cd AI-quiz-app```
+- Install dependencies ```npm install```
+- Serve project in local host ```npm run dev```
+
+
+## Screenshot
+**Homepage**
+![Homepage](screenshot_homepage.png)
+
+**Test page**
+![Test page](screenshot_testpage.png)
+
+**Score page**
+![Score page](screenshot_scorepage.png)
+
+## Sources 
+
+- [OpenAI Platform](https://platform.openai.com/)
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Tailwind CSS](https://tailwindcss.com)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Authors and acknowledgment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Guide provided by Arindam Majumder](https://dev.to/latitude/building-an-ai-powered-quiz-application-with-nextjs-and-openai-2673?ref=dailydev)
